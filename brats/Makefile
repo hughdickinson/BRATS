@@ -50,17 +50,17 @@
 ###############################################################################################
 
 
-
-INSTALLFROM = /home/jharwood/brats_test_environment/
-INSTALLTO = /home/jharwood/brats_test_environment/testinstall
-PGPLOT = /soft/pgplot
-LIBS = /soft/lib
-INCLUDE = /soft/include
-X11LIBS = /usr/lib
+INSTALLFROM = /root/BRATS/brats
+INSTALLTO = /usr/local/brats
+PGPLOT = /usr/local/pgplot
+LIBS = /usr/lib
+BIN = /usr/bin
+INCLUDE = /usr/include
+X11LIBS = /usr/lib/aarch64-linux-gnu
 PREVVER = v2.6.3
 VERSION = v2.6.3.3
-#FUNTOOLS = /soft/lib
-# /soft/lib/libfuntools.a
+FUNTOOLS = /usr/local/funtools/include/funtools
+FUNTOOLSLIBS = /usr/local/funtools/lib
 
 brats: main.c
 	mkdir -p $(INSTALLTO)
