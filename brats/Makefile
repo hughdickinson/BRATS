@@ -52,16 +52,16 @@
 
 INSTALLFROM = /root/BRATS/brats
 INSTALLTO = /usr/local/brats
-PGP_INC = ${PGP_INC}
-PGP_LIB = ${PGP_LIB}
+PGP_INC = ${pgp_inc}
+PGP_LIB = ${pgp_lib}
 LIBS = /usr/lib
 BIN = /usr/bin
 INCLUDE = /usr/include
-X11_LIB = ${X11_LIB}
+X11_LIB = ${x11_lib}
 PREVVER = v2.6.3
 VERSION = v2.6.3.3
-FT_INC = ${FT_INC}
-FT_LIB = ${FT_LIB}
+FT_INC = ${ft_inc}
+FT_LIB = ${ft_lib}
 
 brats: main.c
 	mkdir -p $(INSTALLTO)
