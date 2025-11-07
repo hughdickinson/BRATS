@@ -68,7 +68,7 @@ GSL_LIB = ${gsl_lib}
 brats: main.c
 	mkdir -p $(INSTALLTO)
 	mkdir -p $(INSTALLTO)/docs
-	gcc -fopenmp -Wall -g -O0 -c main.c -Wall -Wno-format-security -c $(INSTALLFROM)/synchrotron_src/synchrotron.c $(INSTALLFROM)/synchrotron_src/bessel.c $(INSTALLFROM)/synchrotron_src/gsl_integ.c -Wall -I$(INCLUDE) -I$(FT_INC) -I$(BIN) -I$(PGP_INC) -I(GSL_INC) -I$(INSTALLFROM)/synchrotron_src 
-	gfortran -fopenmp main.o bessel.o gsl_integ.o -L$(X11_LIB) -L$(LIBS) -L$(BIN) -L$(INCLUDE) -L$(PGP_LIB) -L$(FT_INC) -L$(FT_LIB) -L(GSL_LIB) -lcpgplot -lpgplot -lfuntools -lm -lX11 -lpng -lgsl -lgslcblas -lreadline -o $(INSTALLTO)/brats
+	gcc -fopenmp -Wall -g -O0 -c main.c -Wall -Wno-format-security -c $(INSTALLFROM)/synchrotron_src/synchrotron.c $(INSTALLFROM)/synchrotron_src/bessel.c $(INSTALLFROM)/synchrotron_src/gsl_integ.c -Wall -I$(INCLUDE) -I$(FT_INC) -I$(BIN) -I$(PGP_INC) -I$(GSL_INC) -I$(INSTALLFROM)/synchrotron_src 
+	gfortran -fopenmp main.o bessel.o gsl_integ.o -L$(X11_LIB) -L$(LIBS) -L$(BIN) -L$(INCLUDE) -L$(PGP_LIB) -L$(FT_INC) -L$(FT_LIB) -L$(GSL_LIB) -lcpgplot -lpgplot -lfuntools -lm -lX11 -lpng -lgsl -lgslcblas -lreadline -o $(INSTALLTO)/brats
 	cp $(INSTALLFROM)/updates.txt $(INSTALLTO)/docs/
 	cp $(INSTALLFROM)/bratscookbook.pdf $(INSTALLTO)/docs/
