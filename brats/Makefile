@@ -52,20 +52,21 @@
 
 INSTALLFROM = /root/BRATS/brats
 INSTALLTO = /usr/local/brats
-PGPLOT = /usr/local/pgplot
+PGP_INC = ${PGP_INC}
+PGP_LIB = ${PGP_LIB}
 LIBS = /usr/lib
 BIN = /usr/bin
 INCLUDE = /usr/include
-X11LIBS = /usr/lib/aarch64-linux-gnu
+X11_LIB = ${X11_LIB}
 PREVVER = v2.6.3
 VERSION = v2.6.3.3
-FUNTOOLS = /usr/local/funtools/include/funtools
-FUNTOOLSLIBS = /usr/local/funtools/lib
+FT_INC = ${FT_INC}
+FT_LIB = ${FT_LIB}
 
 brats: main.c
 	mkdir -p $(INSTALLTO)
 	mkdir -p $(INSTALLTO)/docs
-	gcc -fopenmp -Wall -g -O0 -c main.c -Wall -Wno-format-security -c $(INSTALLFROM)/synchrotron_src/synchrotron.c $(INSTALLFROM)/synchrotron_src/bessel.c $(INSTALLFROM)/synchrotron_src/gsl_integ.c -Wall -I$(INCLUDE) -I$(FUNTOOLS) -I$(BIN) -I$(PGPLOT) -I$(INSTALLFROM)/synchrotron_src 
-	gfortran -fopenmp main.o bessel.o gsl_integ.o -L$(X11LIBS) -L$(LIBS) -L$(BIN) -L$(INCLUDE) -L$(PGPLOT) -L$(FUNTOOLS) -L$(FUNTOOLSLIBS) -lcpgplot -lpgplot -lfuntools -lm -lX11 -lpng -lgsl -lgslcblas -lreadline -o $(INSTALLTO)/brats
+	gcc -fopenmp -Wall -g -O0 -c main.c -Wall -Wno-format-security -c $(INSTALLFROM)/synchrotron_src/synchrotron.c $(INSTALLFROM)/synchrotron_src/bessel.c $(INSTALLFROM)/synchrotron_src/gsl_integ.c -Wall -I$(INCLUDE) -I$(FT_INC) -I$(BIN) -I$(PGP_INC) -I$(INSTALLFROM)/synchrotron_src 
+	gfortran -fopenmp main.o bessel.o gsl_integ.o -L$(X11_LIB) -L$(LIBS) -L$(BIN) -L$(INCLUDE) -L$(PGP_LIB) -L$(FT_INC) -L$(FT_LIB) -lcpgplot -lpgplot -lfuntools -lm -lX11 -lpng -lgsl -lgslcblas -lreadline -o $(INSTALLTO)/brats
 	cp $(INSTALLFROM)/updates.txt $(INSTALLTO)/docs/
 	cp $(INSTALLFROM)/bratscookbook.pdf $(INSTALLTO)/docs/
